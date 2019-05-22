@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  webapp:
+    container_name: pynode
+    working_dir: "/hellopy/flaskwebapp"
+    build: .
+    volumes:
+      - ./:/hellopy/flaskwebapp
+    ports:
+      - "8000:5000"
+    links:
+      - hellodb
+    command: python app.py
+  hellodb:
+    container_name: pydb
+    image: mongo:4.0.4
+    ports:
+      - "27017:27017"
