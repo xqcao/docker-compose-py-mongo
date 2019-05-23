@@ -3,23 +3,28 @@ this is python3-flask-mongodb-webapp in docker
 python flask
 pymongo
 
+
+use docker-compose to connect db container
+
+0.install docker and start it
 docker
 
-docker-compose
+1.create external db folder
+docker volume create --name=mydbfolder
 
-build first
-
-#build image
+2.build image first
 docker-compose build
 
-#start docker-pymode,docker-mongodb
+3.start docker-pymode,docker-mongodb
 docker-compose up -d
 
-#stop dokcers
+4.stop dokcers
 doker-compse stop
 
-#remove these containers
+5.remove these containers
 docker-compose rm
 
-# find these image & delete
+6.find these image & delete
 docker rmi ***
+
+7. rebuild image and run containers the data should still in db, cause use docker-volumes

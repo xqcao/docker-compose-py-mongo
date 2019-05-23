@@ -15,5 +15,14 @@ services:
   hellodb:
     container_name: pydb
     image: mongo:4.0.4
+    # data will removed when rebuild
+    volumes:
+      - mydbfolder:/data/db
+      # - mongo-config:/data/configdb
     ports:
       - "27017:27017"
+
+volumes:
+  mydbfolder:
+    external: true
+  # mongo-config:
